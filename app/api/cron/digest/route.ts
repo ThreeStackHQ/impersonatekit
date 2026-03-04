@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { db, workspaces, workspaceMembers, users, impersonationSessions } from "@impersonatekit/db";
 import { eq, and, gte, sql } from "drizzle-orm";
 import { Resend } from "resend";
+import { escapeHtml } from "@/lib/escape";
 
 export async function POST(request: NextRequest) {
   // Verify CRON_SECRET
@@ -83,12 +84,12 @@ export async function POST(request: NextRequest) {
         subject: `ImpersonateKit — ${monthName} Usage Digest`,
         html: `
           <h2>Monthly Usage Digest</h2>
-          <p>Hi ${owner.name},</p>
-          <p>Here's your impersonation usage for <strong>${stat.workspaceName}</strong> in ${monthName}:</p>
+          <p>Hi ${escapeHtml(owner.name)},</p>
+          <p>Here's your impersonation usage for <strong>${escapeHtml(stat.workspaceName)}</strong> in ${escapeHtml(monthName)}:</p>
           <ul>
             <li><strong>${stat.sessionCount}</strong> impersonation sessions</li>
           </ul>
-          <p>View the full audit log in your <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard">dashboard</a>.</p>
+          <p>View the full audit log in your <a href="${escapeHtml(process.env.NEXT_PUBLIC_APP_URL ?? "")}/dashboard">dashboard</a>.</p>
           <p>— ImpersonateKit</p>
         `,
       });

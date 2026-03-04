@@ -109,7 +109,7 @@ export async function GET(
   const cookieStore = await cookies();
   cookieStore.set("ik_impersonation_session_id", session.id, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: true,
     sameSite: "lax",
     maxAge: 1800, // 30 minutes
     path: "/",
