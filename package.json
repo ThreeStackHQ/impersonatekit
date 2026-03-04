@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "pnpm run db:generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "pnpm --filter @impersonatekit/db generate",
@@ -12,6 +12,7 @@
     "db:migrate": "pnpm --filter @impersonatekit/db migrate"
   },
   "dependencies": {
+    "@auth/core": "^0.34.3",
     "@impersonatekit/db": "workspace:*",
     "@neondatabase/serverless": "^0.10.4",
     "@types/bcrypt": "^6.0.0",
