@@ -1,0 +1,3 @@
+{
+  "extends": "@impersonatekit/config/tsconfig.base.json"
+}
