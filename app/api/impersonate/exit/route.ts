@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from "next/server";
 import { db, impersonationSessions } from "@impersonatekit/db";
 import { eq } from "drizzle-orm";

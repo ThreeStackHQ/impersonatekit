@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { db, users, workspaces, workspaceMembers } from "@impersonatekit/db";

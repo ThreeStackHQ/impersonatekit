@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { db, workspaces, workspaceMembers, users, impersonationSessions } from "@impersonatekit/db";
