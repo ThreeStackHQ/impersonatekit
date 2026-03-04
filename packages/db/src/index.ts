@@ -16,7 +16,7 @@ export function getDb(): DbClient {
 
 export const db = new Proxy({} as DbClient, {
   get(_target, prop) {
-    return (getDb() as unknown as Record<string | symbol, unknown>)[prop];
+    return (getDb() as unknown as Record<string | symbol, unknown>)[prop as string];
   },
 });
 
